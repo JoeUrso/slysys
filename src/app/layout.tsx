@@ -4,6 +4,9 @@ import { Inter } from "next/font/google";
 
 import { TRPCReactProvider } from "~/trpc/react";
 
+import Link from "next/link";
+import { Button } from "../components/ui/button";
+
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -15,6 +18,83 @@ export const metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
+const Header = () => (
+  <nav className="flex items-center justify-between border-b border-zinc-200 px-6 py-4 dark:border-zinc-800">
+    <div className="flex items-center space-x-4">
+      <svg
+        className=" h-8 w-8 text-zinc-900 dark:text-zinc-50"
+        fill="none"
+        height="24"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" />
+      </svg>
+      <h1 className="text-xl font-semibold text-zinc-900 dark:text-zinc-50">
+        Analytics Dashboard
+      </h1>
+    </div>
+    <div className="flex items-center space-x-4">
+      <Button size="icon" variant="ghost">
+        <svg
+          className=" h-5 w-5 text-zinc-500 dark:text-zinc-400"
+          fill="none"
+          height="24"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+        </svg>
+        <span className="sr-only">Toggle dark mode</span>
+      </Button>
+      <Button size="icon" variant="ghost">
+        <svg
+          className=" h-5 w-5 text-zinc-500 dark:text-zinc-400"
+          fill="none"
+          height="24"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
+          <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
+        </svg>
+        <span className="sr-only">View notifications</span>
+      </Button>
+    </div>
+  </nav>
+);
+
+const Footer = () => (
+  <footer className="flex items-center justify-between border-t border-zinc-200 px-6 py-4 dark:border-zinc-800">
+    <p className="text-sm text-zinc-500 dark:text-zinc-400">
+      © 2023 Acme Inc.
+    </p>
+    <nav className="flex items-center space-x-4">
+      <Link className="text-sm text-zinc-500 dark:text-zinc-400" href="#">
+        Terms
+      </Link>
+      <Link className="text-sm text-zinc-500 dark:text-zinc-400" href="#">
+        Privacy
+      </Link>
+    </nav>
+  </footer>
+);
+
 export default function RootLayout({
   children,
 }: {
@@ -23,7 +103,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`font-sans ${inter.variable}`}>
-        <TRPCReactProvider>{children}</TRPCReactProvider>
+        <TRPCReactProvider>
+          <Header />
+          {children}
+          <Footer />
+        </TRPCReactProvider>
       </body>
     </html>
   );
