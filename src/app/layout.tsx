@@ -6,6 +6,7 @@ import { TRPCReactProvider } from "~/trpc/react";
 
 import Link from "next/link";
 import { Button } from "../components/ui/button";
+import Logo from "./_components/Logo";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -21,22 +22,9 @@ export const metadata = {
 const Header = () => (
   <nav className="flex items-center justify-between border-b border-zinc-200 px-6 py-4 dark:border-zinc-800">
     <div className="flex items-center space-x-4">
-      <svg
-        className=" h-8 w-8 text-zinc-900 dark:text-zinc-50"
-        fill="none"
-        height="24"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" />
-      </svg>
+      <Logo />
       <h1 className="text-xl font-semibold text-zinc-900 dark:text-zinc-50">
-        Analytics Dashboard
+        Slysys
       </h1>
     </div>
     <div className="flex items-center space-x-4">
@@ -82,7 +70,7 @@ const Header = () => (
 const Footer = () => (
   <footer className="flex items-center justify-between border-t border-zinc-200 px-6 py-4 dark:border-zinc-800">
     <p className="text-sm text-zinc-500 dark:text-zinc-400">
-      © 2023 Acme Inc.
+      © 2023 Slysys Inc.
     </p>
     <nav className="flex items-center space-x-4">
       <Link className="text-sm text-zinc-500 dark:text-zinc-400" href="#">

@@ -12,6 +12,8 @@ import {
   SelectValue,
 } from "../components/ui/select";
 
+import Main from "./_components/Main";
+
 const Sidebar = () => (
   <aside className="w-64 overflow-auto border-r border-zinc-200 dark:border-zinc-800">
     <nav className="flex flex-col gap-4 p-4">
@@ -42,20 +44,6 @@ const Sidebar = () => (
       </div>
     </nav>
   </aside>
-);
-
-const Main = () => (
-  <main className="flex-1 overflow-auto p-4">
-    <div className="grid gap-4">
-      <div className="h-96 rounded-lg bg-zinc-100 dark:bg-zinc-800" />
-      <div className="h-96 rounded-lg bg-zinc-100 dark:bg-zinc-800" />
-    </div>
-    <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-      <div className="h-64 rounded-lg bg-zinc-100 dark:bg-zinc-800" />
-      <div className="h-64 rounded-lg bg-zinc-100 dark:bg-zinc-800" />
-      <div className="h-64 rounded-lg bg-zinc-100 dark:bg-zinc-800" />
-    </div>
-  </main>
 );
 
 export default function Dashboard() {
